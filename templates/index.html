@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader</title>
+
+    <!-- JetBrains Mono Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff; /* White background */
+            font-family: 'JetBrains Mono', monospace; /* JetBrains Mono font */
+            color: #000000; /* Text color black */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container */
+        .container {
+            text-align: center;
+            border: 5px solid #000000;
+            background-color: #f0f0f0; /* Light grey for the container */
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Title Text */
+        h1 {
+            color: #000000; /* Undertale pinkish color */
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Input Styling */
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #ffffff; /* White background for input */
+            border: 2px solid #000000; /* Black border */
+            border-radius: 4px;
+            color: #000000; /* Black text */
+            font-size: 14px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Styling */
+        button {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ffffff; /* White button */
+            border: 2px solid #000000; /* Black border */
+            border-radius: 4px;
+            color: #000000; /* Black text */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #000000;
+            color: #ffffff; /* White text on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Message Box */
+        .message {
+            margin-top: 15px;
+            color: #98c379;
+            font-size: 16px;
+        }
+
+        .error {
+            color: #e06c75;
+            font-size: 16px;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textAnimation {
+            0% {
+                color: #FFB6C1;
+            }
+            50% {
+                color: #FFFF00;
+            }
+            100% {
+                color: #FFB6C1;
+            }
+        }
+
+        /* Special undertale styled buttons */
+        .button {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFB6C1;
+            background-color: #000000;
+            padding: 12px;
+            border-radius: 4px;
+            border: 2px solid #FFB6C1;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #FFB6C1;
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>yt.killer // intzam667</h1>
+        <form id="videoForm">
+            <input type="text" id="videoURL" placeholder="Enter YouTube video URL" required>
+            <button type="submit">Download</button>
+        </form>
+
+        <div id="message" class="message"></div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        // Handle video download
+        document.getElementById('videoForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const videoURL = document.getElementById('videoURL').value;
+            fetch('/download', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `video_url=${videoURL}`,
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').textContent = data.message;
+            })
+            .catch(error => {
+                document.getElementById('error').textContent = 'Error downloading the video';
+            });
+        });
+    </script>
+</body>
+</html>
+

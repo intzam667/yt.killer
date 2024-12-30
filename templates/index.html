@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Video Downloader</title>
 
-    <!-- JetBrains Mono Font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +15,9 @@
         }
 
         body {
-            background-color: #ffffff; /* White background */
-            font-family: 'JetBrains Mono', monospace; /* JetBrains Mono font */
-            color: #000000; /* Text color black */
+            background-color: #ffffff; 
+            font-family: 'JetBrains Mono', monospace; 
+            color: #000000; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,11 +25,10 @@
             overflow: hidden;
         }
 
-        /* Container */
         .container {
             text-align: center;
             border: 5px solid #000000;
-            background-color: #f0f0f0; /* Light grey for the container */
+            background-color: #f0f0f0; 
             padding: 20px;
             border-radius: 10px;
             width: 350px;
@@ -39,35 +36,32 @@
             animation: fadeIn 1s ease-in-out;
         }
 
-        /* Title Text */
         h1 {
-            color: #000000; /* Undertale pinkish color */
+            color: #000000; 
             font-size: 36px;
             margin-bottom: 20px;
         }
 
-        /* Input Styling */
         input {
             width: 80%;
             padding: 10px;
             margin-top: 15px;
-            background-color: #ffffff; /* White background for input */
-            border: 2px solid #000000; /* Black border */
+            background-color: #ffffff; 
+            border: 2px solid #000000; 
             border-radius: 4px;
-            color: #000000; /* Black text */
+            color: #000000; 
             font-size: 14px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Button Styling */
         button {
             width: 80%;
             padding: 10px;
             margin-top: 10px;
-            background-color: #ffffff; /* White button */
-            border: 2px solid #000000; /* Black border */
+            background-color: #ffffff; 
+            border: 2px solid #000000; 
             border-radius: 4px;
-            color: #000000; /* Black text */
+            color: #000000; 
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 14px;
@@ -75,11 +69,10 @@
 
         button:hover {
             background-color: #000000;
-            color: #ffffff; /* White text on hover */
+            color: #ffffff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Message Box */
         .message {
             margin-top: 15px;
             color: #98c379;
@@ -91,7 +84,6 @@
             font-size: 16px;
         }
 
-        /* Animation Keyframes */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -115,7 +107,6 @@
             }
         }
 
-        /* Special undertale styled buttons */
         .button {
             font-size: 18px;
             font-weight: bold;
@@ -148,7 +139,7 @@
     </div>
 
     <script>
-        // Handle video download
+        
         document.getElementById('videoForm').addEventListener('submit', function (event) {
             event.preventDefault();
             const videoURL = document.getElementById('videoURL').value;
@@ -170,4 +161,3 @@
     </script>
 </body>
 </html>
-

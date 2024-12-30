@@ -11,7 +11,6 @@ A self-hosted YouTube video downloader using Google Cloud API and Python yt-dlp 
    ```bash
    python app.py
 
-
 Be sure you installed yt-dlp, google-api-python-client, flask libraries.
 
    
